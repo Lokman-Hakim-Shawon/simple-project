@@ -1,12 +1,18 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../authentication/AuthProvider";
 
-const DashboardHome = () => {
+const DashMyTask = () => {
+    const {user}=useContext(AuthContext)
+    const email=user?.email
     const [task,settask]=useState([])
     console.log(task)
     useEffect(()=>{
         axios.get('http://localhost:5000/task')
-        .then(result=>settask(result.data))
+        .then(result=>{
+            const filteredTasks = result.data.filter(task => task.email === email);
+      settask(filteredTasks);
+        })
         .catch(error=>console.log(error))
     },[])
     return (
@@ -30,4 +36,4 @@ const DashboardHome = () => {
     );
 };
 
-export default DashboardHome;
+export default DashMyTask;

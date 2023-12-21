@@ -14,6 +14,8 @@ import Contact from './pages/Contact';
 import PrivateRoute from './authentication/PrivateRoute';
 import DashboardHome from './pages/Dashboard/DashboardHome';
 import Dashboard from './pages/Dashboard/Dashboard';
+import AddTask from './pages/Dashboard/AddTask';
+import DashMyTask from './pages/Dashboard/DashMyTask';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
       {
         path:'/dashboard',
         element:<DashboardHome></DashboardHome>
+      },
+      {
+        path:'/dashboard/add_task',
+        element:<AddTask></AddTask>
+      },
+      {
+        path:'/dashboard/my_task',
+        element:<DashMyTask></DashMyTask>
       }
     ]
   }

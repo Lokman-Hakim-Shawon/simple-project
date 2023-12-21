@@ -1,6 +1,10 @@
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../../authentication/AuthProvider";
 
 const AddTask = () => {
+  const {user}=useContext(AuthContext)
+  const email=user?.email
     const handlesubmit=e=>{
         e.preventDefault()
         const form=e.target
@@ -14,8 +18,10 @@ const AddTask = () => {
         axios.post(`https://api.imgbb.com/1/upload?key=${imgbb_key}`,formData)
         .then(result=>{
             const img=result.data.data.url
-            console.log(title,deadline,des,img,)
-        console.log(img,'photo')
+            const task={email,title,img,deadline,des}
+            axios.post('http://localhost:5000/task',task)
+            .then(result=>console.log(result))
+            .catch(error=>console.log(error))
        })
     .catch(error=>console.log(error))
  }

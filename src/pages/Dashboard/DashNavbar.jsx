@@ -13,14 +13,14 @@ const DashNavbar = () => {
     }
     const navlink=<>
       <Link to='/dashboard'><li className='px-5'>Home</li></Link>     
-      <Link><li className='px-5'>Add Task</li></Link>     
-      <Link to='/contact'><li className='px-5'>My Task</li></Link>     
+      <Link to='/dashboard/add_task'><li className='px-5'>Add Task</li></Link>     
+      <Link to='/dashboard/my_task'><li className='px-5'>My Task</li></Link>     
       <Link to='/'><li className='px-5'>Menu</li></Link>     
       
     </>
     return (
         <div>
-           <div className="navbar bg-base-100 lg:px-10">
+           <div className="navbar bg-blue-200 lg:px-10">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
