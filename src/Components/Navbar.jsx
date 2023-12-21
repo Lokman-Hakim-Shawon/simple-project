@@ -38,7 +38,13 @@ const Navbar = () => {
   <div className="navbar-end">
     {
         user?
-        <button onClick={handleLogout} className='btn'>{name} Log out</button>
+        <button onClick={handleLogout} className='btn'>
+             <div className="avatar">
+    <div className="w-8">
+      <img src={user?.photoURL} />
+    </div>
+  </div>
+             Log out</button>
         :
         <Link to='/login'><button className='btn'> Login</button></Link>
     }

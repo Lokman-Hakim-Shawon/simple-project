@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'; // ES6
 import { createContext, useEffect, useState } from "react";
 import app from "./firebase.config";
 import {getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, updateProfile} from 'firebase/auth'
@@ -24,9 +25,9 @@ const AuthProvider = ({children}) => {
     const logout=()=>{
         return signOut(auth)
     }
-    const updateprofile=(username)=>{
+    const updateprofile=(username,userimg)=>{
         return updateProfile(auth.currentUser,{
-            displayName:username
+            displayName:username,photoURL:userimg
         })
     }
     const authinfo={
@@ -45,5 +46,7 @@ const AuthProvider = ({children}) => {
         </AuthContext.Provider>
     );
 };
-
+AuthProvider.propTypes={
+    children:PropTypes.node
+}
 export default AuthProvider;
