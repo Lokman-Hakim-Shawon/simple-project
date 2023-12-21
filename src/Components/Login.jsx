@@ -47,7 +47,7 @@ const Login = () => {
           
         </div>
         <div className="form-control mt-6 space-y-5">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn bg-blue-200">Login</button>
           <button onClick={handlegoogle} className="btn "><FcGoogle className='text-2xl'/> Login with Google</button>
         </div>
         <label className="label">

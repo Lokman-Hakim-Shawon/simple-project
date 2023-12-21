@@ -12,6 +12,8 @@ import Register from './Components/Register';
 import AuthProvider from './authentication/AuthProvider';
 import Contact from './pages/Contact';
 import PrivateRoute from './authentication/PrivateRoute';
+import DashboardHome from './pages/Dashboard/DashboardHome';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,16 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:'/dashboard',
+    element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children:[
+      {
+        path:'/dashboard',
+        element:<DashboardHome></DashboardHome>
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

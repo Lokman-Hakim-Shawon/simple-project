@@ -67,7 +67,7 @@ const Register = () => {
           
         </div>
         <div className="form-control mt-6 space-y-5">
-          <button className="btn btn-primary">Register</button>
+          <button className="btn bg-blue-200">Register</button>
           <button onClick={handlegoogle} className="btn "><FcGoogle className='text-2xl'/>Register with Google</button>
         </div>
         <label className="label">

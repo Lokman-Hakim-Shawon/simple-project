@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import {Link} from 'react-router-dom'
-import { AuthContext } from '../authentication/AuthProvider';
-import img2 from '../assets/images/img2.jpg'
-const Navbar = () => {
+import { AuthContext } from '../../authentication/AuthProvider';
+// import { AuthContext } from '../authentication/AuthProvider';
+const DashNavbar = () => {
     const{user,logout}=useContext(AuthContext)
     // const name=user?.displayName
     // console.log(name,'displayname')
@@ -12,19 +12,15 @@ const Navbar = () => {
         .catch(error=>console.log(error))
     }
     const navlink=<>
-      <Link to='/'><li className='px-5'>Home</li></Link>     
-      <Link><li className='px-5'>About</li></Link>     
-      <Link to='/contact'><li className='px-5'>Contact</li></Link>     
-      {
-        user?
-        <Link to='/dashboard'><li className='px-5'>Dashboard</li></Link>     
-        :
-        <Link to='/register'><li className='px-5'>Register</li></Link>     
-      }
+      <Link to='/dashboard'><li className='px-5'>Home</li></Link>     
+      <Link><li className='px-5'>Add Task</li></Link>     
+      <Link to='/contact'><li className='px-5'>My Task</li></Link>     
+      <Link to='/'><li className='px-5'>Menu</li></Link>     
+      
     </>
     return (
-        <div className=''>
-           <div className="navbar bg-base-100 lg:px-10 bg-blue-100">
+        <div>
+           <div className="navbar bg-base-100 lg:px-10">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,11 +30,7 @@ const Navbar = () => {
         {navlink}
       </ul>
     </div>
-    <div className="avatar">
-  <div className="w-16 rounded">
-    <img src={img2} />
-  </div>
-</div>
+    <a className="btn btn-ghost text-xl">daisyUI</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 space-x-5 text-xl ">
@@ -64,4 +56,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default DashNavbar;

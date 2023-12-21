@@ -1,10 +1,13 @@
 import Banner from "../Components/Banner";
+import TypeOfCategory from "../Components/TypeOfCategory";
+import WhatTypes from "../Components/WhatTypes";
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
-              <h1>my nmae is lokman</h1>            
+            <WhatTypes></WhatTypes>
+            <TypeOfCategory></TypeOfCategory>
         </div>
     );
 };
