@@ -3,14 +3,15 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import {
   createBrowserRouter,
-  RouterProvider,
+  RouterProvider
 } from "react-router-dom";
 import Routes from './Components/Routes';
 import Home from './pages/Home';
 import Login from './Components/Login';
 import Register from './Components/Register';
 import AuthProvider from './authentication/AuthProvider';
-import Contact from './Components/Contact';
+import Contact from './pages/Contact';
+import PrivateRoute from './authentication/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/contact',
-        element:<Contact></Contact>
+        element:<PrivateRoute><Contact></Contact></PrivateRoute>
       },
       {
         path:'/login',

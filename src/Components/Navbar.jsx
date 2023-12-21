@@ -3,17 +3,17 @@ import {Link} from 'react-router-dom'
 import { AuthContext } from '../authentication/AuthProvider';
 const Navbar = () => {
     const{user,logout}=useContext(AuthContext)
-    const name=user?.displayName
-    console.log(name,'displayname')
+    // const name=user?.displayName
+    // console.log(name,'displayname')
     const handleLogout=()=>{
         logout()
         .then(result=>console.log(result))
         .catch(error=>console.log(error))
     }
     const navlink=<>
-      <Link><li className='px-5'>Home</li></Link>     
+      <Link to='/'><li className='px-5'>Home</li></Link>     
       <Link><li className='px-5'>About</li></Link>     
-      <Link><li className='px-5'>Contact</li></Link>     
+      <Link to='/contact'><li className='px-5'>Contact</li></Link>     
       <Link to='/register'><li className='px-5'>Register</li></Link>     
     </>
     return (
