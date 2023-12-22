@@ -1,10 +1,13 @@
 import axios from "axios";
-import { useContext } from "react";
-import { AuthContext } from "../../authentication/AuthProvider";
+import { useLocation } from "react-router-dom";
 
-const AddTask = () => {
-  const {user}=useContext(AuthContext)
-  const email=user?.email
+const Update = () => {
+//     const {user}=useContex(AuthContext)
+//   const email=user?.email
+const location=useLocation()
+const data=location.state
+const id=data._id
+console.log(data._id,'data')
     const handlesubmit=e=>{
         e.preventDefault()
         const form=e.target
@@ -18,9 +21,10 @@ const AddTask = () => {
         axios.post(`https://api.imgbb.com/1/upload?key=${imgbb_key}`,formData)
         .then(result=>{
             const img=result.data.data.url
-            const task={email,title,img,deadline,des}
-            axios.post('http://localhost:5000/task',task)
-            .then(result=>console.log(result))
+            const task={title,img,deadline,des}
+            console.log(task,'task')
+            axios.put(`http://localhost:5000/task/${id}`,task)
+            .then(result=>console.log(result,'data update'))
             .catch(error=>console.log(error))
        })
     .catch(error=>console.log(error))
@@ -56,7 +60,7 @@ const AddTask = () => {
           
         </div>
         <div className="form-control mt-6 space-y-5">
-          <button className="btn bg-blue-200">Create Task</button>
+          <button  className="btn bg-blue-200">update</button>
         </div>
       </form>
     </div>
@@ -65,4 +69,4 @@ const AddTask = () => {
     );
 };
 
-export default AddTask;
+export default Update;

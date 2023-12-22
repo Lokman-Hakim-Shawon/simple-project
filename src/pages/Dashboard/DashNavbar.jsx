@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import {Link} from 'react-router-dom'
 import { AuthContext } from '../../authentication/AuthProvider';
-// import { AuthContext } from '../authentication/AuthProvider';
+import img from '../../assets/images/img2.jpg'
 const DashNavbar = () => {
     const{user,logout}=useContext(AuthContext)
     // const name=user?.displayName
@@ -30,7 +30,11 @@ const DashNavbar = () => {
         {navlink}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <div className="avatar">
+  <div className="w-8 md:w-12 lg:w-16 rounded">
+    <img src={img} />
+  </div>
+</div>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 space-x-5 text-xl ">

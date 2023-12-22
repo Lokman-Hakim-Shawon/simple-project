@@ -16,6 +16,9 @@ import DashboardHome from './pages/Dashboard/DashboardHome';
 import Dashboard from './pages/Dashboard/Dashboard';
 import AddTask from './pages/Dashboard/AddTask';
 import DashMyTask from './pages/Dashboard/DashMyTask';
+import Details from './pages/Dashboard/Details';
+import DragAndDrop from './pages/Dashboard/DragAndDrop';
+import Update from './pages/Dashboard/Update';
 
 const router = createBrowserRouter([
   {
@@ -55,8 +58,20 @@ const router = createBrowserRouter([
       {
         path:'/dashboard/my_task',
         element:<DashMyTask></DashMyTask>
-      }
+      },
     ]
+  },
+  {
+  path:'/details',
+  element:<Details></Details>
+  },
+  {
+    path:'/draganddrop',
+    element:<DragAndDrop></DragAndDrop>
+  },
+  {
+    path:'/update',
+    element:<Update></Update>
   }
 ]);
 
