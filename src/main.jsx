@@ -19,6 +19,7 @@ import DashMyTask from './pages/Dashboard/DashMyTask';
 import Details from './pages/Dashboard/Details';
 import DragAndDrop from './pages/Dashboard/DragAndDrop';
 import Update from './pages/Dashboard/Update';
+import About from './pages/About';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>
+      },
+      {
+        path:'/about',
+        element:<About></About>
       },
       {
         path:'/contact',

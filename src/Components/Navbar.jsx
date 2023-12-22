@@ -13,7 +13,7 @@ const Navbar = () => {
     }
     const navlink=<>
       <Link to='/'><li className='px-5'>Home</li></Link>     
-      <Link><li className='px-5'>About</li></Link>     
+      <Link to='/about'><li className='px-5'>About</li></Link>     
       <Link to='/contact'><li className='px-5'>Contact</li></Link>     
       {
         user?

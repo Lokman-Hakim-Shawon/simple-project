@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const TypeOfCategory = () => {
     return (
         <div className=" my-10">
-            <h1 className="text-3xl font-bold underline text-center mb-5">Web Development</h1>
-            <div className="grid grid-cols-2 gap-5 p-10 bg-blue-100">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold underline text-center mb-5">Web Development</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 p-10 bg-blue-100">
             <div className="card bg-blue-200">
   <div className="card-body">
     <h2 className="card-title">HTML</h2>
