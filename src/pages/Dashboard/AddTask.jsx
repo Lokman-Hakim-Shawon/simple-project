@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../authentication/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddTask = () => {
   const {user}=useContext(AuthContext)
@@ -20,7 +21,15 @@ const AddTask = () => {
             const img=result.data.data.url
             const task={email,title,img,deadline,des}
             axios.post('https://sample-project-server.vercel.app/task',task)
-            .then(result=>console.log(result))
+            .then(()=>{
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "E-mail sending successfull ! ",
+                showConfirmButton: false,
+                timer: 1500
+              });
+            })
             .catch(error=>console.log(error))
        })
     .catch(error=>console.log(error))
