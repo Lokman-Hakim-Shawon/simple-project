@@ -19,7 +19,7 @@ const AddTask = () => {
         .then(result=>{
             const img=result.data.data.url
             const task={email,title,img,deadline,des}
-            axios.post('http://localhost:5000/task',task)
+            axios.post('https://sample-project-server.vercel.app/task',task)
             .then(result=>console.log(result))
             .catch(error=>console.log(error))
        })

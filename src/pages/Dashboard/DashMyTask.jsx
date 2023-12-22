@@ -9,7 +9,7 @@ const DashMyTask = () => {
     const [task,settask]=useState([])
     console.log(task)
     useEffect(()=>{
-        axios.get('http://localhost:5000/task')
+        axios.get('https://sample-project-server.vercel.app/task')
         .then(result=>{
             const filteredTasks = result.data.filter(task => task.email === email);
       settask(filteredTasks);

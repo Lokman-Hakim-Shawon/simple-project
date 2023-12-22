@@ -3,6 +3,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from 'react';
 import { AuthContext } from '../authentication/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const {login,google}=useContext(AuthContext)
@@ -14,8 +15,14 @@ const Login = () => {
         const password=form.password.value
         console.log(email,password)
         login(email,password)
-        .then(result=>{
-            console.log(result)
+        .then(()=>{
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "E-mail sending successfull ! ",
+            showConfirmButton: false,
+            timer: 1500
+          });
             Navigate('/')
         })
         .catch(error=>console.log(error))

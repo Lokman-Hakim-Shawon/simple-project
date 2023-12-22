@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
 //     const {user}=useContex(AuthContext)
@@ -23,8 +24,16 @@ console.log(data._id,'data')
             const img=result.data.data.url
             const task={title,img,deadline,des}
             console.log(task,'task')
-            axios.put(`http://localhost:5000/task/${id}`,task)
-            .then(result=>console.log(result,'data update'))
+            axios.put(`https://sample-project-server.vercel.app/task/${id}`,task)
+            .then(()=>{
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "E-mail sending successfull ! ",
+                showConfirmButton: false,
+                timer: 1500
+              });
+            })
             .catch(error=>console.log(error))
        })
     .catch(error=>console.log(error))

@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from 'react-router-dom';
 import { AuthContext } from "../authentication/AuthProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 const Register = () => {
     const {creatuser,google,updateprofile}=useContext(AuthContext)
     const handleRegister=e=>{
@@ -24,7 +25,15 @@ const Register = () => {
            .then(result=>{
                console.log(result)
                updateprofile(name,img)
-                .then(result=>console.log(result,'updatename'))
+                .then(()=>{
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "E-mail sending successfull ! ",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                })
                 .catch(error=>console.log(error))
             })
             .catch(error=>console.log(error))

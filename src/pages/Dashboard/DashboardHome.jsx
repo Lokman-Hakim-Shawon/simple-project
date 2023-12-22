@@ -6,7 +6,7 @@ const DashboardHome = () => {
     const [task,settask]=useState([])
     console.log(task)
     useEffect(()=>{
-        axios.get('http://localhost:5000/task')
+        axios.get('https://sample-project-server.vercel.app/task')
         .then(result=>settask(result.data))
         .catch(error=>console.log(error))
     },[])
