@@ -24,7 +24,7 @@ const Email = () => {
   
       return (
           <div>
-             <h1 className="text-center underline text-4xl py-10">Your Feedback </h1>
+             <h1 className="text-center underline text-xl md:text-2xl lg:text-4xl py-10">Your Feedback </h1>
              <div className="hero">
       <div className="card shrink-0 w-full  shadow-2xl bg-base-100">
         <form className="card-body" ref={form} onSubmit={sendEmail}>
@@ -49,7 +49,7 @@ const Email = () => {
            
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Send Feedback</button>
+            <button className="btn bg-blue-100">Send Feedback</button>
           </div>
         </form>
       </div>
